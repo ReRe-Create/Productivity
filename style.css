@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+body {
+    background-color: #C8D9E6;
+}
+
+.ToDo{
+    width: 100%;
+    max-width: 540px;
+    background: white;
+    border-radius: 25px;
+
+    padding: 3%;
+    margin: 100px auto 20px;
+    overflow: hidden;
+
+    text-align: center;
+    font-size: 10pt;
+}
+
+
+#penIcon{
+    height: 25px;
+    width: auto px;
+    align-items: center;
+}
+.progress{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    width: auto;
+    height: 8px;
+    background: rgb(224, 224, 224);
+    border-radius: 20px;
+    overflow: hidden;
+    position:relative;
+   
+}
+
+.progress_fill{
+    width: 0%;
+    height: 100%;
+    background: #007AFF;
+    transition: all 0.2s;
+}
+
+.progress_num{
+    font-size: 10pt;
+    text-align: center;
+}
+
+.task input {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 75%;
+    border:3px solid grey;
+    border-radius: 32px;
+    outline-width: thin;
+    outline-color: peachpuff;
+} 
+
+.task button {
+    margin-top: 25px;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 32px;
+    background-color: peachpuff;
+
+    border: 3px solid grey ;
+    cursor: pointer;
+    font-weight: bold;
+}
+.task button:hover{
+    transform: translateY(2px);
+    
+}
+
+ul li{
+    list-style: none;
+    font-size: 12pt;
+    text-align: left;
+    padding: 10px 8px 10px 50px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s
+}
+
+ul li::before{
+    content:'';
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background-image: url(Assets/Ellipse\ 1.png);
+    background-size: cover;
+    background-position: center;
+    left: 24px;
+}
+
+ul li.checked{
+    color: grey;
+    text-decoration: line-through;
+}
+
+ul li.checked::before{
+    content:'';
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    background-image: url(Assets/Check.png), url(Assets/Ellipse\ 1.png);
+}
+
+ul li span{
+    position: absolute;
+    right:0;
+    top: 4px;
+    width: 40px;
+    font-size: 15pt;
+    color: #555;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 50px;
+}
+ul li span:hover{
+    background: #edeef0;
+}
