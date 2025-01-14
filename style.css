@@ -8,6 +8,57 @@ body {
     background-color: #C8D9E6;
 }
 
+header{
+    margin: 2rem;
+}
+
+.dropdown{
+    display: inline-block;
+}
+.dropdown button{
+padding: 15px;
+cursor: pointer;
+border-radius: 10px;
+border: 1px solid #1e3050;
+
+}
+
+.dropdown a{
+    display: block;
+    color:#1e3050;
+    text-decoration: none;
+    padding: 7px;
+}
+
+.content{
+    display: none;
+    position: absolute;
+    background-color:white;
+    min-width: 100px;
+    border-radius: 10px;
+    border: 1px solid #1e3050;
+}
+.content a{
+    color: #1e3050;
+    padding: 12px 16px;
+    display: block;
+}
+
+.dropdown:hover .content{
+    display: block;
+}
+
+.dropdown:hover button{
+    background-color: lightgray;
+    border: 1px solid hsl(0, 0%, 60%);
+}
+
+.dropdown a:hover{
+    background-color:#1e3050;
+    color: white;
+    border-radius: 7px;
+}
+
 .ToDo{
     width: 100%;
     max-width: 540px;
@@ -20,6 +71,7 @@ body {
 
     text-align: center;
     font-size: 10pt;
+    color:#1e3050;
 }
 
 
