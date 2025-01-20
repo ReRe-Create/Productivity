@@ -1,5 +1,8 @@
-**It's a to-do list**
-
+**It's a productivity site:**
+- inlcudes: 
+    1. To Do List
+    2. Lofi Music Player
+    3. Pomodora Timer
 
 **This project was made by following online sources: **
 1. [https://youtu.be/G0jO8kUrg-I?si=4TSSQtgjXYYpKyNs](url)

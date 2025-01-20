@@ -8,8 +8,9 @@ body {
     background-color: #C8D9E6;
 }
 
+/*Dropdown Menu*/
 header{
-    margin: 2rem;
+    margin: 1.5rem;
 }
 
 .dropdown{
@@ -59,6 +60,8 @@ border: 1px solid #1e3050;
     border-radius: 7px;
 }
 
+/*To do List styling*/
+
 .ToDo{
     width: 100%;
     max-width: 540px;
@@ -80,6 +83,9 @@ border: 1px solid #1e3050;
     width: auto px;
     align-items: center;
 }
+
+/*Progress Bar Style*/
+
 .progress{
     margin-top: 15px;
     margin-bottom: 10px;
@@ -103,6 +109,8 @@ border: 1px solid #1e3050;
     font-size: 10pt;
     text-align: center;
 }
+
+/*Adding task*/
 
 .task input {
     margin-top: 25px;
@@ -179,4 +187,20 @@ ul li span{
 }
 ul li span:hover{
     background: #edeef0;
+}
+
+#Clear{
+    margin-top: 25px;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 32px;
+    background-color: peachpuff;
+
+    border: 3px solid grey ;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#Clear:hover{
+    transform: translateY(2px);
 }

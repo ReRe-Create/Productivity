@@ -3,7 +3,7 @@ const list = document.getElementById("list");
 
  function addTask(){
     
-    if(userInput.value === ""){
+    if(userInput.value == ""){
             alert ("You must include a task!");
         }
     
@@ -18,6 +18,7 @@ const list = document.getElementById("list");
     userInput.value= "";
     updateProgress();
     saveData();
+    clear();
 }
 
 userInput.addEventListener("keypress", function(event){
@@ -36,6 +37,7 @@ list.addEventListener("click", function (e){
         e.target.parentElement.remove();
         saveData();
         updateProgress();
+        clear();
     }
 },false);
 
@@ -46,6 +48,7 @@ function saveData(){
 function showTask(){
     list.innerHTML = localStorage.getItem("data");
     updateProgress();
+    clear();
 }
 
 //update progress bar
@@ -87,4 +90,37 @@ function updateProgressBar(value){
     progressNum.textContent= `${value}% completed`;
     }
     
+function clear(){
+    const task = list.getElementsByTagName("LI").length;
+    let clearbtn = document.querySelector("#Clear");
+
+    //creates a clear button when task is present
+    if(task>0){
+        if (!clearbtn){ 
+        clearbtn = document.createElement("button");
+        clearbtn.id = "Clear";
+        clearbtn.textContent = "Clear";
+        document.querySelector("#list").appendChild(clearbtn);
+
+        //when clicked on all tasks are removed
+        clearbtn.addEventListener ("click", function () {
+            while(list.firstChild){
+                list.removeChild(list.firstChild);
+            
+            }
+            updateProgress();
+            saveData();
+            clear();
+        });
+        }
+    }
+
+    //removes task when task isn't present
+    else{
+        if (clearbtn){
+        clearbtn.remove();
+        }
+    }
+
+}
 showTask();
