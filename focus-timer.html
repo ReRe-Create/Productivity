@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Timer</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/8d1e73f923.js" crossorigin="anonymous"></script></head>
+
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="focus-timer-style.css">
+
+
+</head>
+<body>
+
+    <header>
+        <div class="dropdown menu">
+            <button type="button" >
+                <i class="fa-solid fa-bars fa-xl"></i>
+            </button>
+            <div class="content">
+                <a href="index.html">To-Do List</a>
+                <a href="Lofi.html" target="_blank">Lofi Music Player</a>
+                <a href="focus-timer.html">Focus Timer</a>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="timer-container">
+            <div id="minutes" class="digit blue">00</div>
+            <div id="seconds" class="digit grey">00</div>
+
+        </div>
+
+        <h3 id="session">Session Length</h3>
+
+        <div class="reset_container">
+            <button id="restart_time" type="button" onclick="reset()">Restart
+                <i class="fa-solid fa-rotate-right"></i>
+            </button>
+        </div>
+        
+        <div class="session-container">
+            <button id="minus-arrow" type="button" onclick="add_minus_time(-5)">
+                <i class="fa-solid fa-minus"></i>
+            </button>
+
+            <div class="time-box">
+                <div id="set_time">
+                    <h5>0</h5>
+                </div>
+            </div>
+
+            <button id="add-arrow" type="button" onclick="add_minus_time(1)">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+        </div>
+
+        <div class="start-stop-container">
+            <button class="start-btn" type="button" onclick="start_btn()">Start</button>
+        
+            <button class="reset-btn" type="button" onclick="add_minus_time(0)">
+                <i class="fa-solid fa-rotate-right"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

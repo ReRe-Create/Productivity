@@ -1,5 +1,9 @@
+//For to-do's
 const userInput = document.getElementById("userInput");
 const list = document.getElementById("list");
+
+//for timer
+let mintimer_interval;
 
  function addTask(){
     
@@ -15,7 +19,7 @@ const list = document.getElementById("list");
         span.innerHTML = "\u00d7";
         li.appendChild(span);
     }
-    userInput.value= "";
+    // userInput.value= "";
     updateProgress();
     saveData();
     clear();
@@ -100,7 +104,7 @@ function clear(){
         clearbtn = document.createElement("button");
         clearbtn.id = "Clear";
         clearbtn.textContent = "Clear";
-        document.querySelector("#list").appendChild(clearbtn);
+        list.insertBefore(clearbtn, list.firstChild);
 
         //when clicked on all tasks are removed
         clearbtn.addEventListener ("click", function () {
@@ -110,17 +114,156 @@ function clear(){
             }
             updateProgress();
             saveData();
-            clear();
         });
         }
     }
 
-    //removes task when task isn't present
+    //removes clearbtn when task isn't present
     else{
-        if (clearbtn){
         clearbtn.remove();
-        }
+
     }
 
 }
+
 showTask();
+
+
+//Pomodoro Functions
+
+//add or minus time button
+function add_minus_time(click){
+    const time = document.querySelector("#set_time h5");
+    const sum_value = parseInt(time.innerText) + click;
+    time.innerText= sum_value;
+
+    if (sum_value<0){
+        time.innerText = 0;    
+    }
+
+//reset session time button
+    if (click === 0){
+        time.innerText = 0;
+    }
+    settime_display();
+}
+
+
+//Timer countdown
+function countdown(){
+        mintimer_interval = setInterval(() => {
+        const minElement = document.getElementById("minutes");
+        let minutes = parseInt(minElement.textContent);
+        const secElement = document.getElementById("seconds");
+        let seconds = parseInt(secElement.textContent);
+        document.querySelector(".reset_container").style.display = 'flex'; //restart button appears during that time
+
+            if (minutes > 0 || seconds>0){
+                if(seconds > 0){
+                   seconds--; 
+                } else {
+                    minutes--;
+                    seconds = 59;
+                }
+            minElement.textContent = minutes;
+            secElement.textContent = seconds;
+
+            } else {
+                clearInterval(mintimer_interval);
+                completed();
+                document.querySelector(".reset_container").style.display = 'none';
+
+            }
+    }, 1000);
+            
+}
+
+//start button
+function start_btn(){
+    const timeElement = document.querySelector("#set_time h5");
+    const time = parseInt(timeElement.innerText);
+
+    //alert user when they did not set time
+    if (time==0){
+        alert ("Please set time!");
+
+    } else{
+        //removes elements from session_container and start_stop container
+        const session_container = document.getElementsByClassName("session-container");
+        const start_stop_container = document.getElementsByClassName("start-stop-container");
+        document.getElementById("session").style.display = 'none';
+
+        for (let i = 0; i < session_container.length; i++) {
+            session_container[i].style.display = 'none';
+        }
+        
+        for (let i = 0; i < start_stop_container.length; i++) {
+            start_stop_container[i].style.display = 'none';
+        }
+
+        //countdown begins
+        countdown();
+    }
+}
+
+// Reset Button Function
+function reset() {
+    document.querySelector(".reset_container").style.display = 'none';
+    clearInterval(mintimer_interval); // Stop the ongoing timer
+    document.getElementById("minutes").textContent = "00";
+    document.getElementById("seconds").textContent = "00";
+
+    // Show session controls again
+    const session_container = document.getElementsByClassName("session-container");
+    const start_stop_container = document.getElementsByClassName("start-stop-container");
+    document.getElementById("session").style.display = '';
+
+
+    for (let i = 0; i < session_container.length; i++) {
+        session_container[i].style.display = '';
+    }
+
+    for (let i = 0; i < start_stop_container.length; i++) {
+        start_stop_container[i].style.display = '';
+    }
+
+    const time = document.querySelector("#set_time h5");
+    time.innerText = 0;
+}
+
+//shows time
+function settime_display(){
+    const timeElement = document.querySelector("#set_time h5");
+    const time = parseInt(timeElement.innerText);
+    document.getElementById("minutes").textContent = time;
+
+    if (time ==0){
+        document.getElementById("minutes").textContent = "00";
+    }
+
+}
+
+function completed(){
+    const session_container = document.getElementsByClassName("session-container");
+    const start_stop_container = document.getElementsByClassName("start-stop-container");
+
+    // var sound = new Audio('Assets/lofi-alarm-clock.mp3');
+    // sound.play();
+    alert ("Session completed");
+    document.getElementById("minutes").textContent = "00";
+    document.getElementById("seconds").textContent = "00";
+    document.getElementById("session").style.display = '';
+
+    for (let i = 0; i < session_container.length; i++) {
+        session_container[i].style.display = '';
+    }
+    
+    for (let i = 0; i < start_stop_container.length; i++) {
+        start_stop_container[i].style.display = '';
+    }
+
+    const time = document.querySelector("#set_time h5");
+    time.innerText = 0;
+    
+}
+

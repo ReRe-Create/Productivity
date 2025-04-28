@@ -1,0 +1,105 @@
+body{
+    background-image: url("Assets/Pomodoro\ BG.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+h3{
+    text-align: center;
+    padding-top: 2rem;
+}
+button{
+    cursor: pointer;
+    padding: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-width: 2px;
+    background-color: lightgrey;
+    font-weight: bold;
+}
+
+button:hover{
+    transform: translateY(2px)
+}
+
+.container{
+    margin:auto;
+    background-color: rgb(229, 238, 247);
+    border-radius: 10px;
+    min-width: 20rem;
+    max-width: 50rem;
+    padding: 40px;  
+}
+
+.timer-container{
+    margin: auto;
+    background: whitesmoke;
+    border-radius: 8px;
+    padding: 2rem;
+    display: flex;
+    max-width: 20rem;
+    gap: 5px;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.digit{
+    border-radius: 4px;
+    width: 120px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.digit.blue{
+    background: #6F8FAF;
+}
+
+.digit.grey{
+    background-color: grey;
+}
+
+.session-container{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding-top: 2rem;
+    gap: 5px;
+}
+
+.time-box{
+    padding: 20px;
+    display: flexbox;
+    background-color: #6F8FAF;
+    font-size: 24px;
+    border: 2px solid #000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 60px;
+    text-align: center;
+}
+
+.start-stop-container{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding-top: 30px;
+    gap: 8px;
+}
+
+.start-btn{
+    padding: 7px 40px;
+    font-size: 16px;
+}
+
+.reset_container{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+}
